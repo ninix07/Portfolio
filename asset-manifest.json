@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Portfolio/static/css/main.0c3b1774.css",
+    "main.js": "/Portfolio/static/js/main.9e4fdd30.js",
+    "static/js/787.1ed0c42c.chunk.js": "/Portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/Nigam_Resume.pdf": "/Portfolio/static/media/Nigam_Resume.c24d48ca06986876010e.pdf",
+    "static/media/logo.png": "/Portfolio/static/media/logo.889144e34c6d0442d823.png",
+    "static/media/autoffic.svg": "/Portfolio/static/media/autoffic.fe4e726ff5676df7a4740e3b328bc3c8.svg",
+    "static/media/home-bg.jpg": "/Portfolio/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
+    "static/media/Prabigya.png": "/Portfolio/static/media/Prabigya.1a0c86e8c01fb8a0693e.png",
+    "static/media/home-main.svg": "/Portfolio/static/media/home-main.5b40d5b6f482f907c9c7334ae84ec987.svg",
+    "static/media/avatar.svg": "/Portfolio/static/media/avatar.6830c6bada8c44be723669da4466d8c7.svg",
+    "index.html": "/Portfolio/index.html",
+    "main.0c3b1774.css.map": "/Portfolio/static/css/main.0c3b1774.css.map",
+    "main.9e4fdd30.js.map": "/Portfolio/static/js/main.9e4fdd30.js.map",
+    "787.1ed0c42c.chunk.js.map": "/Portfolio/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0c3b1774.css",
+    "static/js/main.9e4fdd30.js"
+  ]
+}
