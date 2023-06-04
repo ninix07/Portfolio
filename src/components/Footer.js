@@ -55,7 +55,7 @@ function Footer() {
             </li>
             <li className="social-icons">
               <a
-                href="/contact"
+                href="#"
                 target="_blank"
                 rel="noreferrer"
                 style={{ color: "white" }}

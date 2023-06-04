@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo.png";
 import { Link } from "react-router-dom";
 import "./Styles/navbar.css";
-import PDF from "./Nigam_Resume.pdf";
+import PDF from "../Assets/Nigam_Resume.pdf";
 
 import {
   AiOutlineHome,
@@ -20,7 +20,11 @@ function NavBar() {
   const [navColour, updateNavbar] = useState(false);
   const contactRef = useRef(null);
 
+  const expanding = () => {
+    updateExpanded(expand ? false : "expanded");
+  };
   const handleClick = () => {
+    expanding();
     contactRef.current.scrollIntoView({ behavior: "smooth" });
   };
   function scrollHandler() {
@@ -46,9 +50,7 @@ function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+          onClick={expanding}
         >
           <span></span>
           <span></span>
