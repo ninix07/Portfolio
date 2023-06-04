@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.c0e24d85.css",
-    "main.js": "/static/js/main.fac22a0d.js",
+    "main.js": "/static/js/main.f909d327.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
-    "static/media/Nigam_Resume.pdf": "/static/media/Nigam_Resume.c24d48ca06986876010e.pdf",
+    "static/media/Nigam_Resume.pdf": "/static/media/Nigam_Resume.9902a62a475059aa1934.pdf",
     "static/media/logo.png": "/static/media/logo.889144e34c6d0442d823.png",
     "static/media/autoffic.svg": "/static/media/autoffic.fe4e726ff5676df7a4740e3b328bc3c8.svg",
     "static/media/home-bg.jpg": "/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
@@ -12,11 +12,11 @@
     "static/media/avatar.svg": "/static/media/avatar.6830c6bada8c44be723669da4466d8c7.svg",
     "index.html": "/index.html",
     "main.c0e24d85.css.map": "/static/css/main.c0e24d85.css.map",
-    "main.fac22a0d.js.map": "/static/js/main.fac22a0d.js.map",
+    "main.f909d327.js.map": "/static/js/main.f909d327.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c0e24d85.css",
-    "static/js/main.fac22a0d.js"
+    "static/js/main.f909d327.js"
   ]
 }
