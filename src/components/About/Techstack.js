@@ -9,7 +9,13 @@ import {
   DiGit,
   DiSass,
 } from "react-icons/di";
-import { SiMysql, SiMongodb, SiOpencv, SiCss3 } from "react-icons/si";
+import {
+  SiMysql,
+  SiMongodb,
+  SiOpencv,
+  SiCss3,
+  SiTensorflow,
+} from "react-icons/si";
 
 function Techstack() {
   return (
@@ -49,6 +55,10 @@ function Techstack() {
       <Col xs={4} md={2} className="tech-icons">
         <DiPython />
         <h6>Python</h6>
+      </Col>
+      <Col xs={4} md={2} className="tech-icons">
+        <SiTensorflow />
+        <h6>TensorFlow</h6>
       </Col>
       <Col xs={4} md={2} className="tech-icons">
         <SiOpencv />

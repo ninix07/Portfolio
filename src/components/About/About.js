@@ -11,8 +11,8 @@ import "../Styles/about.css";
 
 function About() {
   const isMobile = useMediaQuery({ maxWidth: 768 }); // Set the mobile breakpoint as per your design
-  const translateXValues = isMobile ? ["-100px", "0px"] : ["-200px", "0px"];
-  const scaleValues = isMobile ? [1, 1] : [0.75, 1];
+  const translateXValues = ["-100px", "0px"];
+  const scaleValues = [1, 1];
   return (
     <Container fluid className="about-section" id="about">
       <Container>

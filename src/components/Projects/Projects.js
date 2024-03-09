@@ -5,7 +5,7 @@ import "../Styles/project.css";
 import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 import prabigya from "../../Assets/Projects/Prabigya.png";
 import autoffic from "../../Assets/Projects/autoffic.svg";
-
+import prophesy from "../../Assets/Projects/battery.png";
 function Projects() {
   return (
     <Container fluid className="project-section" id="project">
@@ -39,6 +39,15 @@ function Projects() {
               title="Autoffic"
               description="Autoffic uses object detection and object tracking systems to detect the number of vehicles in an intersection and control the traffic accordingly in a simulated environment."
               ghLink="https://github.com/orgs/Autoffic/repositories"
+            />
+          </Col>
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={prophesy}
+              isBlog={false}
+              title="Prophesy"
+              description="Prophesy is a battery monitoring software tailored for linux and windows user. It focuses on providing relevant information about battery and using it to predict the remaining time of use for given charge cycle using neural network and regression algorithms."
+              ghLink="https://github.com/earthPerson-001/prophesy"
             />
           </Col>
         </Row>
