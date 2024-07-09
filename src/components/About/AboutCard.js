@@ -8,34 +8,31 @@ function AboutCard() {
       <Card.Body>
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
-            Hi Everyone, I am <span className="purple">Nigam Niraula </span>
-            from <span className="coloured"> Kathmandu,Nepal.</span>
-            <br /> I am a third year student pursuing Computer Engineering.
+            Hello Everyone, I am <span className="purple">Nigam Niraula</span>{" "}
+            from <span className="coloured">Kathmandu, Nepal.</span>
+            <br /> I am a third-year student pursuing a degree in Computer
+            Engineering at{" "}
+            <span className="coloured">Kathmandu University</span>.
             <br />
-            <br />I am fluent in classics like
-            <i>
-              <b className="coloured"> C, C++, and Javascript. </b>
-            </i>
-            <br />
-            <br />
-            My field of Interest's are
-            <b className="coloured"> Web Development </b> and{" "}
-            <b className="coloured">Machine Learning</b>
+            <br />I have experience working on various projects in{" "}
+            <span className="coloured">
+              image processing, frontend development, and full-stack development
+            </span>
+            .
             <br />
             <br />
-            Apart from coding, some other activities that I love to do!
+            My key areas of interest include
+            <b className="coloured"> Web Development</b> and
+            <b className="coloured"> Machine Learning.</b>
+            <br />
+            <br />
+            Apart from my technical skills, I have strong soft skills in
+            communication, teamwork, problem-solving, and adaptability.
+            <br />
+            <br />
           </p>
-          <ul>
-            <li className="about-activity">
-              <ImPointRight /> Playing Games
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Learning New Skills
-            </li>
-            <li className="about-activity">
-              <ImPointRight /> Travelling
-            </li>
-          </ul>
+
+          <br />
         </blockquote>
       </Card.Body>
     </Card>
