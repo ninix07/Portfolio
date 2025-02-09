@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/static/css/main.6dae3aaf.css",
-    "main.js": "/static/js/main.d356d6f8.js",
+    "main.js": "/static/js/main.2f665855.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/media/Play Tetris.png": "/static/media/Play Tetris.5fff8a7537b1df16cc09.png",
     "static/media/logo.png": "/static/media/logo.889144e34c6d0442d823.png",
-    "static/media/Nigam_Resume.pdf": "/static/media/Nigam_Resume.c01b430bd895f1aca02d.pdf",
+    "static/media/Nigam_Resume.pdf": "/static/media/Nigam_Resume.5c312cb22b72154f0c60.pdf",
     "static/media/SwiftCart.png": "/static/media/SwiftCart.f42ce6cf42696975e3d9.png",
     "static/media/battery.png": "/static/media/battery.b9aaa53475f0751f62f8.png",
     "static/media/FarmApp.png": "/static/media/FarmApp.04599039978a23df6b3f.png",
@@ -16,11 +16,11 @@
     "static/media/avatar.svg": "/static/media/avatar.6830c6bada8c44be723669da4466d8c7.svg",
     "index.html": "/index.html",
     "main.6dae3aaf.css.map": "/static/css/main.6dae3aaf.css.map",
-    "main.d356d6f8.js.map": "/static/js/main.d356d6f8.js.map",
+    "main.2f665855.js.map": "/static/js/main.2f665855.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6dae3aaf.css",
-    "static/js/main.d356d6f8.js"
+    "static/js/main.2f665855.js"
   ]
 }
