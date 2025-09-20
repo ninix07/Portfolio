@@ -22,8 +22,7 @@ const Navigation = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       
-      const sections = ['hero', ...navigationItems.map(item => typeof item.href === 'string' ? item.href.substring(1) : '').filter(id => id && !item.cta)];
-      let currentSection = "";
+      const sections = ['hero', ...navigationItems.filter(item => !item.cta && typeof item.href === 'string').map(item => item.href.substring(1))];      let currentSection = "";
 
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import {
   // Main Categories
   Brain, Laptop, Rocket, Settings,
@@ -75,7 +75,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants :Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,

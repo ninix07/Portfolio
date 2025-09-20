@@ -1,5 +1,5 @@
 import { ExternalLink, Github, Star, TrendingUp, BookOpen, Code } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 // Assuming you have these assets imported
 import autoffic from "@/assets/projects/autoffic.jpg";
@@ -107,7 +107,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants :Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,

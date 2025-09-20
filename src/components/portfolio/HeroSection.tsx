@@ -1,5 +1,5 @@
 import { Mail, Linkedin, Github, Download } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import CV_PDF from "@/assets/Nigam-Niraula.pdf"; // Make sure this path is correct
 
@@ -20,7 +20,7 @@ const staggerContainer = {
   },
 };
 
-const fadeInUp = {
+const fadeInUp: Variants = { 
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,

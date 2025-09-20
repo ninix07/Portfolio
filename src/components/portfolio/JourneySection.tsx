@@ -1,5 +1,5 @@
 import { GraduationCap, Briefcase, Award, BookOpen } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 // --- Data from your CV ---
 const experiences = [
@@ -89,7 +89,7 @@ const parseStartDate = (period) => {
 const timelineEvents = [
     ...experiences.map(item => ({ ...item, type: 'experience' })),
     ...education.map(item => ({ ...item, type: 'education' }))
-].sort((a, b) => parseStartDate(b.period) - parseStartDate(a.period));
+].sort((a, b) => parseStartDate(b.period).getTime() - parseStartDate(a.period).getTime());
 
 
 // --- Main Component ---
@@ -158,7 +158,7 @@ const JourneySection = () => {
 
 // --- Sub-components ---
 const TimelineItem = ({ item, isLeft }) => {
-    const itemVariants = {
+    const itemVariants :Variants = {
         hidden: { opacity: 0, x: isLeft ? -40 : 40 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
     };
