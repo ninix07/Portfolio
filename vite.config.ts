@@ -12,4 +12,17 @@ export default defineConfig(() => ({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'animation-vendor': ['framer-motion'],
+          'icons-vendor': ['lucide-react'],
+          'ui-vendor': ['react-type-animation'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 500,
+  },
 }))
