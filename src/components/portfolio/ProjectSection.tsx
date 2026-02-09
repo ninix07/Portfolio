@@ -91,7 +91,7 @@ const statusConfig = {
   },
   Research: {
     icon: <BookOpen className="h-4 w-4" />,
-    className: "bg-violet-400/10 text-violet-400 border-violet-400/30",
+    className: "bg-cyan-400/10 text-cyan-400 border-cyan-400/30",
   },
   Development: {
     icon: <Code className="h-4 w-4" />,
@@ -130,7 +130,7 @@ const ProjectsSection = () => {
         >
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
             My Portfolio of{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-indigo-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-slate-500 bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
@@ -163,8 +163,8 @@ const ProjectsSection = () => {
 const ProjectCard = ({ project }) => {
     const status = statusConfig[project.status];
     return (
-        <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4 backdrop-blur-xl transition-all duration-300 hover:border-violet-500/50">
-            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-violet-500/20 to-zinc-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+        <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50">
+            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cyan-500/20 to-zinc-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
             <div className="relative mb-4 h-48 overflow-hidden rounded-lg">
                 <img
                     src={project.image}
@@ -181,7 +181,7 @@ const ProjectCard = ({ project }) => {
             </div>
             <div className="flex flex-1 flex-col p-2">
                 <div className="flex items-center justify-between">
-                    <p className="text-xs font-medium uppercase tracking-wider text-violet-400">
+                    <p className="text-xs font-medium uppercase tracking-wider text-cyan-400">
                         {project.category}
                     </p>
                     <div className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold ${status.className}`}>
@@ -199,7 +199,7 @@ const ProjectCard = ({ project }) => {
                     ))}
                 </div>
                 <div className="mt-auto flex gap-3 pt-2">
-                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 rounded-md bg-violet-600 text-white transition-colors duration-300 hover:bg-violet-700">
+                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex-1 rounded-md bg-cyan-600 text-white transition-colors duration-300 hover:bg-cyan-700">
                         <div className="flex h-10 w-full items-center justify-center gap-2">
                         <Github className="h-4 w-4" /> Source
                         </div>

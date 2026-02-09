@@ -42,7 +42,7 @@ const ContactSection = () => {
         >
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Let's Build Something{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-indigo-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-slate-500 bg-clip-text text-transparent">
               Amazing
             </span>
           </h2>
@@ -63,7 +63,7 @@ const ContactSection = () => {
             <p className="mt-2 text-slate-400">The fastest way to reach me is by email.</p>
             <a 
               href="mailto:nigam21nir@gmail.com" 
-              className="group relative mt-6 inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-violet-600 px-8 font-medium text-white transition-all duration-300 hover:bg-violet-700"
+              className="group relative mt-6 inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-cyan-600 px-8 font-medium text-white transition-all duration-300 hover:bg-cyan-700"
             >
               <span className="absolute bottom-0 left-0 mb-9 ml-9 h-48 w-48 -translate-x-full translate-y-full rotate-45 transform bg-white opacity-20 transition-all duration-500 ease-out group-hover:translate-x-0"></span>
               <Mail className="mr-2 h-5 w-5" />
@@ -87,7 +87,7 @@ const ContactSection = () => {
                 aria-label={ariaLabel}
                 className="group flex items-center gap-4 rounded-lg p-4 transition-colors duration-300 hover:bg-slate-800/50"
               >
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 text-slate-400 transition-colors duration-300 group-hover:border-violet-500/50 group-hover:text-violet-400">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 text-slate-400 transition-colors duration-300 group-hover:border-cyan-500/50 group-hover:text-cyan-400">
                   <Icon className="h-6 w-6" />
                 </div>
                 <div>

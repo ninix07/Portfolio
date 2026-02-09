@@ -1,128 +1,139 @@
-import { Mail, Linkedin, Github, Download } from "lucide-react";
-import { motion, Variants } from "framer-motion";
+import { memo } from "react";
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 import profilePhoto from "@/assets/profile-photo.jpg";
-import CV_PDF from "@/assets/Nigam-Niraula.pdf"; // Make sure this path is correct
+import { useAvailability } from "@/hooks/useAvailability";
 
-const socialLinks = [
-  { icon: Mail, href: "mailto:nigam21nir@gmail.com", label: "Email" },
-  { icon: Linkedin, href: "https://linkedin.com/in/nigam-niraula-564208215", label: "LinkedIn" },
-  { icon: Github, href: "https://github.com/ninix07", label: "GitHub" },
-];
+import {
+  NAME_FIRST,
+  NAME_LAST,
+  SUBTITLE_ITEMS,
+  HERO_DESCRIPTION,
+  SOCIAL_LINKS,
+  CTA_DOWNLOAD_CV,
+  CTA_GET_IN_TOUCH,
+  STAGGER_CONTAINER_VARIANTS,
+  FADE_IN_UP_VARIANTS,
+  STYLES,
+  type SocialLink
+} from "./heroConstants";
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
+// =========================================
+// MEMOIZED SUB-COMPONENTS
+// =========================================
 
-const fadeInUp: Variants = { 
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
+const PrimaryButton = memo(({ href, text, icon: Icon }: { href: string; text: string; icon?: React.ElementType }) => (
+  <a
+    href={href}
+    target={href.startsWith('#') ? '_self' : '_blank'}
+    rel="noopener noreferrer"
+    className={STYLES.primaryButton}
+  >
+    {Icon && <Icon className="mr-2 h-5 w-5" />}
+    {text}
+  </a>
+));
+
+const SecondaryButton = memo(({ href, text }: { href: string; text: string }) => (
+    <a href={href} className={STYLES.secondaryButton}>
+        {text}
+    </a>
+));
+
+const SocialIconLink = memo(({ href, label, icon: Icon }: SocialLink) => (
+  <motion.a
+    key={label}
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={label}
+    className={STYLES.socialLink}
+    whileHover={{ y: -3 }}
+    transition={{ duration: 0.2 }}
+  >
+    <Icon className="h-8 w-8" />
+  </motion.a>
+));
+
+// =========================================
+// MAIN COMPONENT
+// =========================================
 
 const HeroSection = () => {
+  const { status, isAvailable } = useAvailability();
   return (
-    // --- FIX HERE: Removed background color, relative/overflow, and old aurora divs ---
-    <section className="flex min-h-screen items-center justify-center p-4">
-      <div className="container relative z-10 mx-auto">
+    <section className={STYLES.section}>
+      <div className={STYLES.container}>
         <motion.div
-          className="grid max-w-6xl mx-auto grid-cols-1 items-center gap-12 lg:grid-cols-2"
-          variants={staggerContainer}
+          className={STYLES.grid}
+          variants={STAGGER_CONTAINER_VARIANTS}
           initial="hidden"
           animate="visible"
         >
           {/* Left Side: Content */}
-          <div className="space-y-6 text-center lg:text-left">
+          <div className={STYLES.contentWrapper}>
             <motion.h1
-              className="text-5xl font-bold leading-tight md:text-6xl lg:text-7xl"
-              variants={fadeInUp}
+              className={STYLES.title}
+              variants={FADE_IN_UP_VARIANTS}
             >
-              Nigam{" "}
-              <span className="bg-gradient-to-r from-violet-400 to-indigo-500 bg-clip-text text-transparent">
-                Niraula
+              {NAME_FIRST}{" "}
+              <span className={STYLES.gradientText}>
+                {NAME_LAST}
               </span>
             </motion.h1>
 
-            <motion.p className="text-xl font-semibold text-violet-300 md:text-2xl" variants={fadeInUp}>
-              Machine Learning Engineer & AI Researcher
-            </motion.p>
+            <motion.div className={STYLES.subtitle} variants={FADE_IN_UP_VARIANTS}>
+                <TypeAnimation
+                    sequence={SUBTITLE_ITEMS}
+                    wrapper="span"
+                    speed={50}
+                    repeat={Infinity}
+                />
+            </motion.div>
 
-            <motion.p className="mx-auto max-w-xl text-slate-400 lg:mx-0" variants={fadeInUp}>
-              Specializing in Computer Vision, Deep Learning, and Agentic AI Systems. Building next-gen AI solutions that transform how we interact with technology.
+            <motion.p className={STYLES.description} variants={FADE_IN_UP_VARIANTS}>
+              {HERO_DESCRIPTION}
             </motion.p>
             
             <motion.div
-              className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start"
-              variants={fadeInUp}
+              className={STYLES.buttonGroup}
+              variants={FADE_IN_UP_VARIANTS}
             >
-              <a
-                href={CV_PDF}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-violet-600 px-6 font-medium text-white transition-all duration-300 hover:bg-violet-700"
-              >
-                <span className="absolute bottom-0 left-0 mb-9 ml-9 h-48 w-48 -translate-x-full translate-y-full rotate-45 transform bg-white opacity-20 transition-all duration-500 ease-out group-hover:translate-x-0"></span>
-                <Download className="mr-2 h-5 w-5" />
-                Download CV
-              </a>
-
-              <a href="#contact" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-slate-700 bg-transparent px-6 font-medium text-slate-200 transition-colors duration-300 hover:border-violet-500 hover:bg-slate-800/50">
-                Get In Touch
-              </a>
+                <PrimaryButton href={CTA_DOWNLOAD_CV.href} text={CTA_DOWNLOAD_CV.text} icon={CTA_DOWNLOAD_CV.icon} />
+                <SecondaryButton href={CTA_GET_IN_TOUCH.href} text={CTA_GET_IN_TOUCH.text} />
             </motion.div>
 
             <motion.div
-              className="flex items-center justify-center gap-5 pt-4 lg:justify-start"
-              variants={fadeInUp}
+              className={STYLES.socialGroup}
+              variants={FADE_IN_UP_VARIANTS}
             >
-              {socialLinks.map(({ icon: Icon, href, label }) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="text-slate-400 transition-colors duration-300 hover:text-violet-400"
-                  whileHover={{ y: -3 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Icon className="h-8 w-8" />
-                </motion.a>
+              {SOCIAL_LINKS.map((link) => (
+                <SocialIconLink {...link} key={link.label} />
               ))}
             </motion.div>
           </div>
 
           {/* Right Side: Image */}
-          <motion.div className="relative mx-auto w-80 lg:w-96" variants={fadeInUp}>
+          <motion.div className={STYLES.imageWrapper} variants={FADE_IN_UP_VARIANTS}>
             <div className="relative">
-              <div className="absolute -inset-1.5 animate-[spin_6s_linear_infinite] rounded-2xl bg-gradient-to-r from-violet-600 via-indigo-500 to-violet-600"></div>
-              <div className="relative h-80 w-80 overflow-hidden rounded-xl bg-zinc-900 lg:h-96 lg:w-96">
+              <div className={STYLES.imageSpinner}></div>
+              <div className={STYLES.imageContainer}>
                 <img
                   src={profilePhoto}
-                  alt="Nigam Niraula"
-                  className="h-full w-full object-cover"
+                  alt={`Headshot of ${NAME_FIRST} ${NAME_LAST}`}
+                  className={STYLES.image}
                 />
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 flex items-center gap-2 rounded-full border border-slate-700 bg-zinc-900/80 px-4 py-2 text-sm backdrop-blur-md">
-              <span className="relative flex h-3 w-3">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
-              </span>
-              <span className="text-slate-200">Available for hire</span>
-            </div>
+            {/* <div className={STYLES.hireBadge}>
+              {isAvailable && (
+                <span className="relative flex h-3 w-3">
+                  <span className={STYLES.hireBadgePing}></span>
+                  <span className={STYLES.hireBadgeDot}></span>
+                </span>
+              )}
+              <span className="text-slate-200">{status}</span>
+            </div> */}
           </motion.div>
         </motion.div>
       </div>
@@ -130,4 +141,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default memo(HeroSection);

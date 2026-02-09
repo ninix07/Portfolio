@@ -14,11 +14,11 @@ export default {
         popover: "hsl(0 0% 100%)",
         "popover-foreground": "hsl(240 10% 3.9%)",
         
-        // Modern primary - Deep blue with excellent contrast
-        primary: "hsl(221 83% 53%)",
+        // New primary - Slate
+        primary: "hsl(215 28% 17%)",
         "primary-foreground": "hsl(0 0% 98%)",
-        "primary-dark": "hsl(221 83% 43%)",
-        "primary-light": "hsl(221 83% 63%)",
+        "primary-dark": "hsl(215 30% 14%)",
+        "primary-light": "hsl(215 25% 27%)",
         
         // Refined secondary colors
         secondary: "hsl(240 4.8% 95.9%)",
@@ -28,8 +28,8 @@ export default {
         muted: "hsl(240 4.8% 95.9%)",
         "muted-foreground": "hsl(240 3.8% 46.1%)",
         
-        // Modern accent - Vibrant teal
-        accent: "hsl(142 76% 36%)",
+        // New accent - Cyan
+        accent: "hsl(188 80% 40%)",
         "accent-foreground": "hsl(0 0% 98%)",
         
         // Error states
@@ -39,7 +39,7 @@ export default {
         // Borders and inputs
         border: "hsl(240 5.9% 90%)",
         input: "hsl(240 5.9% 90%)",
-        ring: "hsl(221 83% 53%)",
+        ring: "hsl(188 80% 40%)",
       },
       borderRadius: {
         lg: "0.75rem",
@@ -58,15 +58,15 @@ export default {
       },
       backgroundImage: {
         // Modern gradient system
-        "gradient-primary": "linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(221 83% 43%) 100%)",
+        "gradient-primary": "linear-gradient(135deg, hsl(215 28% 17%) 0%, hsl(215 30% 14%) 100%)",
         "gradient-secondary": "linear-gradient(135deg, hsl(240 4.8% 95.9%) 0%, hsl(240 5.9% 90%) 100%)",
-        "gradient-hero": "linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(142 76% 36%) 100%)",
+        "gradient-hero": "linear-gradient(135deg, hsl(215 28% 17%) 0%, hsl(188 80% 40%) 100%)",
         "gradient-card": "linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(240 4.8% 97%) 100%)",
-        "gradient-mesh": "radial-gradient(at 40% 20%, hsl(221 83% 53%) 0px, transparent 50%), radial-gradient(at 80% 0%, hsl(142 76% 36%) 0px, transparent 50%), radial-gradient(at 0% 50%, hsl(262 83% 58%) 0px, transparent 50%)",
+        "gradient-mesh": "radial-gradient(at 40% 20%, hsl(215 28% 17%) 0px, transparent 50%), radial-gradient(at 80% 0%, hsl(188 80% 40%) 0px, transparent 50%), radial-gradient(at 0% 50%, hsl(215 25% 27%) 0px, transparent 50%)",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Cal Sans", "Inter", "system-ui", "sans-serif"],
+        display: ["Montserrat", "Poppins", "Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
         "xs": ["0.75rem", { lineHeight: "1rem" }],

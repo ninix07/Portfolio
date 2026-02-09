@@ -4,6 +4,7 @@ import SkillsSection from "../../src/components/portfolio/SkillSection";
 import ProjectsSection from "../../src/components/portfolio/ProjectSection";
 import PublicationSection from "../../src/components/portfolio/PublicationSection";
 import JourneySection from "../../src/components/portfolio/JourneySection";
+import CertificationsAndLeadership from "../../src/components/portfolio/CertificationsAndLeadership";
 import ContactSection from "../../src/components/portfolio/ContactSetion";
 import Footer from "@/components/portfolio/Footer";
 
@@ -18,11 +19,13 @@ const Index = () => {
         <section id="hero">
           <HeroSection />
         </section>
-        
+        <section id="publications">
+          <PublicationSection />
+        </section>
         <section id="experience">
           <JourneySection />
         </section>
-        
+  
         <section id="skills">
           <SkillsSection />
         </section>
@@ -30,14 +33,15 @@ const Index = () => {
         <section id="projects">
           <ProjectsSection />
         </section>
-        
-        <section id="publications">
-          <PublicationSection />
+        <section id="certifications">
+          <CertificationsAndLeadership />
         </section>
+        
         
         <section id="contact">
           <ContactSection />
         </section>
+        
         <Footer />
       
     </>

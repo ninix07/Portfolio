@@ -5,10 +5,10 @@ import Logo from "./Logo";
 import CV_PDF from "@/assets/Nigam-Niraula.pdf";
 
 const navigationItems = [
+  { label: "Publication", href: "#publications" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Publication", href: "#publications" },
   { label: "Contact", href: "#contact" },
   { label: "View CV", href: CV_PDF, cta: true },
 ];
@@ -60,7 +60,7 @@ const Navigation = () => {
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 text-sm font-medium border border-slate-700 px-4 py-2 rounded-md text-slate-200 transition-colors duration-300 hover:border-violet-500 hover:bg-slate-800/50 ${isMobile ? 'w-full justify-center' : ''}`}
+            className={`flex items-center gap-2 text-sm font-medium border border-slate-700 px-4 py-2 rounded-md text-slate-200 transition-colors duration-300 hover:border-cyan-500 hover:bg-slate-800/50 ${isMobile ? 'w-full justify-center' : ''}`}
           >
             {item.label}
             <ArrowUpRight className="h-4 w-4" />

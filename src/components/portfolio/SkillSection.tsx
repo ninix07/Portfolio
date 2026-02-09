@@ -98,7 +98,7 @@ const SkillsSection = () => {
         >
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
             My Technical{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-indigo-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-slate-500 bg-clip-text text-transparent">
               Skillset
             </span>
           </h2>
@@ -118,12 +118,12 @@ const SkillsSection = () => {
             <motion.div
               key={category.title}
               variants={itemVariants}
-              className="group relative rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-xl transition-all duration-300 hover:border-violet-500/50"
+              className="group relative rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50"
             >
-              <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-violet-500/20 to-zinc-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+              <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-zinc-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
 
               <div className="mb-4 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 text-violet-400">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 text-cyan-400">
                   <category.icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-100">{category.title}</h3>
@@ -132,7 +132,7 @@ const SkillsSection = () => {
                 {category.skills.map((skill) => (
                   <motion.div
                     key={skill.name}
-                    className="flex items-center gap-2 rounded-full bg-slate-800/80 px-3 py-1 text-sm font-medium text-slate-300 transition-colors hover:bg-violet-600/30 hover:text-violet-300"
+                    className="flex items-center gap-2 rounded-full bg-slate-800/80 px-3 py-1 text-sm font-medium text-slate-300 transition-colors hover:bg-cyan-600/30 hover:text-cyan-300"
                     whileHover={{ y: -3, scale: 1.05 }}
                   >
                     <skill.icon className="h-4 w-4" />
