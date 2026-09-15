@@ -49,7 +49,7 @@ const Navigation = () => {
     }
   };
 
-  const NavLinks = ({ isMobile = false }) => (
+  const renderNavLinks = (isMobile = false) => (
     navigationItems.map((item) => {
       const isActive = typeof item.href === 'string' && activeSection === item.href.substring(1);
       
@@ -99,7 +99,7 @@ const Navigation = () => {
           </a>
 
           <div className="hidden lg:flex items-center gap-2">
-            <NavLinks />
+            {renderNavLinks()}
           </div>
 
           <button
@@ -122,7 +122,7 @@ const Navigation = () => {
         style={{ overflow: 'hidden' }}
       >
         <div className="px-2 pt-2 pb-3 sm:px-3 flex flex-col items-start gap-1">
-          <NavLinks isMobile={true} />
+          {renderNavLinks(true)}
         </div>
       </motion.div>
     </nav>
