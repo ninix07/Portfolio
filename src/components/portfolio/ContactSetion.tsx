@@ -1,37 +1,11 @@
-import { Mail, Linkedin, Github, Phone, MapPin } from "lucide-react";
+import { Linkedin, Github } from "lucide-react";
 import { motion } from "framer-motion";
-
-const contactDetails = [
-  { 
-    icon: Mail, 
-    value: "nigam21nir@gmail.com", 
-    href: "mailto:nigam21nir@gmail.com",
-    ariaLabel: "Email"
-  },
-  { 
-    icon: Linkedin, 
-    value: "LinkedIn", 
-    href: "https://linkedin.com/in/nigam-niraula-564208215",
-    ariaLabel: "LinkedIn Profile"
-  },
-  { 
-    icon: Github, 
-    value: "GitHub", 
-    href: "https://github.com/ninix07",
-    ariaLabel: "GitHub Profile" 
-  },
-  { 
-    icon: MapPin, 
-    value: "Sallaghari, Nepal", 
-    href: "https://maps.google.com/?q=SallaGhari,+Bhaktapur",
-    ariaLabel: "Location on Map"
-  },
-];
+import ChalkFrame from "./ChalkFrame";
+import { RULE_PATH_D } from "./heroConstants";
 
 const ContactSection = () => {
   return (
-    // --- FIX HERE: Changed py-24 sm:py-32 to pt-24 pb-16 sm:pt-32 ---
-    <section id="contact" className="pt-24 pb-16 text-white sm:pt-32">
+    <section id="contact" className="pt-24 pb-16 text-chalk-100 sm:pt-32">
       <div className="container relative z-10 mx-auto px-4">
         <motion.div
           className="mx-auto max-w-4xl text-center"
@@ -40,63 +14,55 @@ const ContactSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Let's Build Something{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-slate-500 bg-clip-text text-transparent">
-              Amazing
-            </span>
+          <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            Contact
           </h2>
-          <p className="mt-6 text-lg leading-8 text-slate-400">
-            Have a project in mind or want to connect? I'm always open to discussing new opportunities and innovative ideas.
-          </p>
+          <div className="rule-chalk mx-auto mt-4 w-24">
+            <svg viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true">
+              <path d={RULE_PATH_D} fill="none" stroke="#F4F1E8" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </div>
         </motion.div>
 
         <motion.div
-          className="mx-auto mt-16 max-w-4xl rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-xl sm:p-10"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          className="card-chalk relative mx-auto mt-10 max-w-lg rounded-sm bg-board-900 p-8 pt-20 text-center shadow-[0_10px_24px_rgba(0,0,0,0.35)] sm:p-10 sm:pt-24"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <div className="text-center">
-            <p className="text-lg font-semibold text-slate-200">Get in Touch</p>
-            <p className="mt-2 text-slate-400">The fastest way to reach me is by email.</p>
-            <a 
-              href="mailto:nigam21nir@gmail.com" 
-              className="group relative mt-6 inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-cyan-600 px-8 font-medium text-white transition-all duration-300 hover:bg-cyan-700"
+          <ChalkFrame />
+          <svg className="envelope-flap" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M4,5 C60,34 72,44 100,50 C128,44 142,32 196,4" fill="none" stroke="#F4F1E8" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+          <p className="relative text-lg font-semibold text-chalk-100">Get in touch</p>
+          <p className="relative mt-3 text-chalk-400">The fastest way to reach me is by email.</p>
+          <a
+            href="mailto:nigam21nir@gmail.com"
+            className="btn-chalk relative mt-8 h-12 px-8 font-semibold text-chalk-yellow-500 transition-colors duration-300 hover:text-chalk-yellow-400"
+          >
+            <ChalkFrame variant="button" />
+            <span className="relative">Send an Email</span>
+          </a>
+          <div className="relative mt-6 flex items-center justify-center gap-6">
+            <a
+              href="https://linkedin.com/in/nigam-niraula-564208215"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-chalk-400 transition-colors duration-300 hover:text-chalk-yellow-500"
             >
-              <span className="absolute bottom-0 left-0 mb-9 ml-9 h-48 w-48 -translate-x-full translate-y-full rotate-45 transform bg-white opacity-20 transition-all duration-500 ease-out group-hover:translate-x-0"></span>
-              <Mail className="mr-2 h-5 w-5" />
-              <span>Send an Email</span>
+              <Linkedin className="h-5 w-5" aria-hidden="true" />
             </a>
-          </div>
-
-          <div className="my-8 flex items-center justify-center gap-4">
-            <div className="h-px flex-1 bg-zinc-800"></div>
-            <span className="text-sm text-slate-500">OR</span>
-            <div className="h-px flex-1 bg-zinc-800"></div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {contactDetails.map(({ icon: Icon, value, href, ariaLabel }) => (
-              <a
-                key={value}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={ariaLabel}
-                className="group flex items-center gap-4 rounded-lg p-4 transition-colors duration-300 hover:bg-slate-800/50"
-              >
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 text-slate-400 transition-colors duration-300 group-hover:border-cyan-500/50 group-hover:text-cyan-400">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-slate-200 transition-colors duration-300 group-hover:text-white">
-                    {value}
-                  </p>
-                </div>
-              </a>
-            ))}
+            <a
+              href="https://github.com/ninix07"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-chalk-400 transition-colors duration-300 hover:text-chalk-yellow-500"
+            >
+              <Github className="h-5 w-5" aria-hidden="true" />
+            </a>
           </div>
         </motion.div>
       </div>

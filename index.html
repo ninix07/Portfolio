@@ -9,13 +9,7 @@
       content="Nigam Niraula - Machine Learning Engineer & AI Researcher. Specializing in Computer Vision, Deep Learning, and AI Systems."
     />
     <meta name="author" content="Nigam Niraula" />
-    <link rel="icon" type="image/png" href="/Logo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
     <meta
       property="og:title"
@@ -26,21 +20,24 @@
       content="Machine Learning Engineer specializing in Computer Vision, Deep Learning, and AI Systems. Experience at SecurityPal and AI Lab IITH."
     />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://lovable.dev/opengraph-image-p98pqg.png"
-    />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta
-      name="twitter:image"
-      content="https://lovable.dev/opengraph-image-p98pqg.png"
-    />
+    <meta name="twitter:card" content="summary" />
   </head>
 
   <body>
     <div id="root"></div>
+    <!-- Shared chalk-grain filter: reused across components via filter: url(#chalkGrain) -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <filter id="chalkGrain" x="-20%" y="-60%" width="140%" height="220%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="4" result="grain" />
+          <feColorMatrix in="grain" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.995 0" result="grainAlpha" />
+          <feComposite in="SourceGraphic" in2="grainAlpha" operator="in" result="textured" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="6" result="wobble" />
+          <feDisplacementMap in="textured" in2="wobble" scale="0.8" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

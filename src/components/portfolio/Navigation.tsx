@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
-import Logo from "./Logo";
 import CV_PDF from "@/assets/Nigam-Niraula.pdf";
+import ChalkFrame from "./ChalkFrame";
 
 const navigationItems = [
   { label: "Publication", href: "#publications" },
@@ -13,6 +13,12 @@ const navigationItems = [
   { label: "View CV", href: CV_PDF, cta: true },
 ];
 
+// All real sections in document order, including ones (like Certifications)
+// that don't get their own nav link — they fall back to the nearest section
+// that does, so the nav never highlights nothing (or the wrong thing).
+const SECTION_ORDER = ["hero", "publications", "experience", "skills", "projects", "certifications", "contact"];
+const SECTION_NAV_FALLBACK: Record<string, string> = { certifications: "projects" };
+
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,20 +27,18 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      
-      const sections = ['hero', ...navigationItems.filter(item => !item.cta && typeof item.href === 'string').map(item => item.href.substring(1))];      let currentSection = "";
 
-      for (const sectionId of sections) {
+      // Walk sections top-to-bottom and keep the last one whose top has
+      // already crossed the threshold line — the section currently under it.
+      const threshold = 120;
+      let currentSection = "";
+      for (const sectionId of SECTION_ORDER) {
         const element = document.getElementById(sectionId);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
-            currentSection = sectionId;
-            break;
-          }
+        if (element && element.getBoundingClientRect().top <= threshold) {
+          currentSection = sectionId;
         }
       }
-      setActiveSection(currentSection);
+      setActiveSection(SECTION_NAV_FALLBACK[currentSection] ?? currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -60,10 +64,10 @@ const Navigation = () => {
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 text-sm font-medium border border-slate-700 px-4 py-2 rounded-md text-slate-200 transition-colors duration-300 hover:border-cyan-500 hover:bg-slate-800/50 ${isMobile ? 'w-full justify-center' : ''}`}
+            className={`btn-chalk h-9 px-4 text-sm font-semibold text-chalk-yellow-500 transition-colors duration-300 hover:text-chalk-yellow-400 ${isMobile ? 'w-full justify-center' : ''}`}
           >
-            {item.label}
-            <ArrowUpRight className="h-4 w-4" />
+            <ChalkFrame variant="button" />
+            <span className="relative">{item.label}</span>
           </a>
         );
       }
@@ -73,8 +77,8 @@ const Navigation = () => {
           key={item.label}
           href={item.href}
           onClick={(e) => handleLinkClick(e, item.href)}
-          className={`px-3 py-2 rounded-md text-md font-medium transition-colors duration-300 ${
-            isActive ? "bg-white/10 text-white" : "text-slate-400 hover:text-white"
+          className={`px-3 py-2 font-mono text-xs uppercase tracking-wide transition-colors duration-300 ${
+            isActive ? "text-chalk-yellow-500" : "text-chalk-400 hover:text-chalk-100"
           } ${isMobile ? 'w-full text-left' : ''}`}
         >
           {item.label}
@@ -86,16 +90,15 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        // --- FIX HERE: Add '|| isMobileMenuOpen' to the condition ---
         (isScrolled || isMobileMenuOpen)
-          ? "bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-800/50"
+          ? "bg-board-950/80 backdrop-blur-lg border-b border-board-700/50"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
-          <a href="#hero" onClick={(e) => handleLinkClick(e, "#hero")} className="flex-shrink-0">
-            <Logo />
+          <a href="#hero" onClick={(e) => handleLinkClick(e, "#hero")} className="flex-shrink-0 font-display text-xl text-chalk-100">
+            Nigam Niraula
           </a>
 
           <div className="hidden lg:flex items-center gap-2">
@@ -103,7 +106,7 @@ const Navigation = () => {
           </div>
 
           <button
-            className="lg:hidden p-2 rounded-md text-slate-300 hover:text-white hover:bg-slate-800/50"
+            className="lg:hidden p-2 rounded-md text-chalk-400 hover:text-chalk-100 hover:bg-board-800"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

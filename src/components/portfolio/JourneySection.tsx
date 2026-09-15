@@ -1,8 +1,6 @@
 import { motion, Variants } from "framer-motion";
 import {
   SECTION_TITLE,
-  SECTION_TITLE_GRADIENT,
-  SECTION_SUBTITLE,
   ANIMATION_DURATION_DEFAULT,
   ANIMATION_DURATION_STAGGER,
   ANIMATION_DURATION_ITEM,
@@ -12,10 +10,11 @@ import {
   VIEWPORT_AMOUNT_STAGGER,
   STYLES,
   getSortedTimelineEvents,
-  getTimelineIcon,
   type TimelineEvent,
 } from "./constants";
-import { GraduationCap } from "lucide-react";
+import { Briefcase, GraduationCap } from "lucide-react";
+import ChalkFrame from "./ChalkFrame";
+import { RULE_PATH_D } from "./heroConstants";
 const JourneySection = () => {
     const timelineEvents = getSortedTimelineEvents();
     return (
@@ -29,12 +28,13 @@ const JourneySection = () => {
                     transition={{ duration: ANIMATION_DURATION_DEFAULT }}
                 >
                     <h2 className={STYLES.title}>
-                        {SECTION_TITLE}{" "}
-                        <span className={STYLES.gradientText}>
-                            {SECTION_TITLE_GRADIENT}
-                        </span>
+                        {SECTION_TITLE}
                     </h2>
-                    <p className={STYLES.subtitle}>{SECTION_SUBTITLE}</p>
+                    <div className="rule-chalk mx-auto mt-4 w-24">
+                        <svg viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true">
+                            <path d={RULE_PATH_D} fill="none" stroke="#F4F1E8" strokeWidth="1.5" strokeLinecap="round" />
+                        </svg>
+                    </div>
                 </motion.div>
 
                 <div className={STYLES.timelineWrapper}>
@@ -75,28 +75,30 @@ const TimelineItem = ({ item, isLeft }: TimelineItemProps) => {
         },
     };
     
-    const Icon = getTimelineIcon(item.type);
     const isExperience = item.type === 'experience';
 
     return (
         <motion.div className="relative mb-12" variants={itemVariants}>
-            <div className={`flex items-start ${isLeft ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+            <div className={`flex flex-col items-start md:flex-row ${isLeft ? 'md:flex-row-reverse' : ''}`}>
                 {/* Content Card */}
                 <div className={STYLES.card.wrapper}>
                     <div className={STYLES.card.base}>
-                        <p className={STYLES.card.period}>{item.period}</p>
-                        <h4 className={STYLES.card.title}>
+                        <ChalkFrame />
+                        <div className="date-tag" />
+                        <p className={`relative ${STYLES.card.period}`}>{item.period}</p>
+                        <h4 className={`relative ${STYLES.card.title}`}>
                             {isExperience ? item.title : item.degree}
                         </h4>
-                        <p className={STYLES.card.subtitle}>
+                        <p className={`relative ${STYLES.card.subtitle}`}>
                             {isExperience ? item.company : item.institution}
+                            {isExperience && item.location && ` · ${item.location}`}
                         </p>
                         {isExperience ? (
-                            <ul className={STYLES.card.description}>
+                            <ul className={`relative ${STYLES.card.description}`}>
                                 {item.description?.map((desc, i) => <li key={i}>{desc}</li>)}
                             </ul>
                         ) : (
-                            <div>
+                            <div className="relative">
                                 <p className={STYLES.card.details}>{item.details}</p>
                                 <div className={STYLES.card.cgpa}>
                                     <span className={STYLES.card.cgpaHighlight}> CGPA: {item.cgpa}</span>
@@ -108,7 +110,9 @@ const TimelineItem = ({ item, isLeft }: TimelineItemProps) => {
                 {/* Center Dot */}
                 <div className={STYLES.timelineDot.wrapper}>
                     <div className={STYLES.timelineDot.circle}>
-                        <Icon className={STYLES.timelineDot.icon} />
+                        {isExperience
+                            ? <Briefcase className={STYLES.timelineDot.icon} aria-hidden="true" />
+                            : <GraduationCap className={STYLES.timelineDot.icon} aria-hidden="true" />}
                     </div>
                 </div>
                 <div className="hidden md:block md:w-5/12"></div>

@@ -2,9 +2,6 @@
 // JOURNEY SECTION CONSTANTS
 // ==========================================
 
-import { Briefcase, GraduationCap } from "lucide-react";
-import { ComponentType } from "react";
-
 // ==========================================
 // TYPES
 // ==========================================
@@ -187,9 +184,7 @@ export const PUBLICATIONS: Publication[] = [
 // UI CONSTANTS
 // ==========================================
 
-export const SECTION_TITLE = "My Professional";
-export const SECTION_TITLE_GRADIENT = "Journey";
-export const SECTION_SUBTITLE = "A timeline of my academic achievements and professional experience.";
+export const SECTION_TITLE = "My Professional Journey";
 
 // Animation durations (in seconds)
 export const ANIMATION_DURATION_DEFAULT = 0.6;
@@ -207,29 +202,27 @@ export const VIEWPORT_AMOUNT_STAGGER = 0.2;
 // ==========================================
 
 export const STYLES = {
-  section: "py-24 text-white sm:py-32",
+  section: "py-24 text-chalk-100 sm:py-32",
   container: "container relative z-10 mx-auto px-4",
-  titleWrapper: "mx-auto mb-20 max-w-4xl text-center",
-  title: "text-4xl font-bold tracking-tight sm:text-5xl",
-  gradientText: "bg-gradient-to-r from-cyan-400 to-slate-400 bg-clip-text text-transparent",
-  subtitle: "mt-6 text-lg leading-8 text-slate-400",
+  titleWrapper: "mx-auto mb-8 max-w-4xl text-center",
+  title: "font-display text-4xl font-semibold tracking-tight sm:text-5xl",
   timelineWrapper: "mx-auto max-w-4xl",
-  timelineLine: "absolute left-4 top-4 h-full w-0.5 bg-zinc-800 md:left-1/2 md:-translate-x-1/2",
+  timelineLine: "absolute left-4 top-4 h-full w-px bg-[repeating-linear-gradient(to_bottom,rgba(244,241,232,0.35)_0px,rgba(244,241,232,0.35)_5px,transparent_5px,transparent_11px)] md:left-1/2 md:-translate-x-1/2",
   card: {
     wrapper: "w-full pl-12 md:w-5/12 md:pl-0",
-    base: "rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 backdrop-blur-xl",
-    period: "mb-2 text-xs font-semibold uppercase tracking-wider text-cyan-400",
-    title: "mb-1 text-xl font-bold text-slate-100",
-    subtitle: "mb-4 text-sm font-medium text-slate-300",
-    description: "space-y-2 text-sm text-slate-400 list-disc pl-4",
-    details: "text-sm text-slate-400",
-    cgpa: "mt-2 flex items-center gap-2 text-sm font-semibold text-slate-200",
-    cgpaHighlight: "text-amber-400",
+    base: "card-chalk rounded-sm bg-board-900 p-5 shadow-[0_10px_20px_rgba(0,0,0,0.3)]",
+    period: "mb-2 font-mono text-xs font-medium uppercase tracking-wider text-chalk-yellow-500",
+    title: "mb-1 text-xl font-bold text-chalk-100",
+    subtitle: "mb-4 text-sm font-medium text-chalk-400",
+    description: "space-y-2 text-sm text-chalk-400 list-disc pl-4",
+    details: "text-sm text-chalk-400",
+    cgpa: "mt-2 flex items-center gap-2 text-sm font-semibold text-chalk-100",
+    cgpaHighlight: "text-chalk-yellow-500",
   },
   timelineDot: {
     wrapper: "absolute left-4 top-5 h-5 w-5 -translate-x-1/2 md:relative md:left-0 md:top-0 md:mx-4 md:flex md:w-2/12 md:translate-x-0 md:items-start md:justify-center",
-    circle: "relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-zinc-900 ring-4 ring-cyan-500",
-    icon: "h-4 w-4 text-white",
+    circle: "relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-board-900 ring-4 ring-chalk-yellow-500",
+    icon: "h-4 w-4 text-chalk-100",
   },
 } as const;
 
@@ -255,9 +248,3 @@ export const getSortedTimelineEvents = (): TimelineEvent[] => {
   ].sort((a, b) => parseStartDate(b.period).getTime() - parseStartDate(a.period).getTime());
 };
 
-/**
- * Gets the appropriate icon for timeline item type
- */
-export const getTimelineIcon = (type: 'experience' | 'education'): ComponentType<{ className?: string }> => {
-  return type === 'experience' ? Briefcase : GraduationCap;
-};

@@ -13,37 +13,20 @@ import Footer from "@/components/portfolio/Footer";
 const Index = () => {
   return (
     <>
+      <a href="#hero" className="skip-link">
+        Skip to content
+      </a>
       <Navigation />
-      
-      
-        <section id="hero">
-          <HeroSection />
-        </section>
-        <section id="publications">
-          <PublicationSection />
-        </section>
-        <section id="experience">
-          <JourneySection />
-        </section>
-  
-        <section id="skills">
-          <SkillsSection />
-        </section>
-        
-        <section id="projects">
-          <ProjectsSection />
-        </section>
-        <section id="certifications">
-          <CertificationsAndLeadership />
-        </section>
-        
-        
-        <section id="contact">
-          <ContactSection />
-        </section>
-        
-        <Footer />
-      
+      <section id="hero">
+        <HeroSection />
+      </section>
+      <PublicationSection />
+      <JourneySection />
+      <SkillsSection />
+      <ProjectsSection />
+      <CertificationsAndLeadership />
+      <ContactSection />
+      <Footer />
     </>
   );
 };

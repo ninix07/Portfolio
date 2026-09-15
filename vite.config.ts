@@ -19,7 +19,6 @@ export default defineConfig(() => ({
           'react-vendor': ['react', 'react-dom'],
           'animation-vendor': ['framer-motion'],
           'icons-vendor': ['lucide-react'],
-          'ui-vendor': ['react-type-animation'],
         },
       },
     },

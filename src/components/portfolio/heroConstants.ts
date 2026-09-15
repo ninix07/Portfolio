@@ -1,16 +1,5 @@
 import { Variants } from "framer-motion";
-import { Mail, Linkedin, Github, Download, LucideIcon } from "lucide-react";
 import CV_PDF from "@/assets/Nigam-Niraula.pdf";
-
-// ==========================================
-// TYPES
-// ==========================================
-
-export interface SocialLink {
-  icon: LucideIcon;
-  href: string;
-  label: string;
-}
 
 // ==========================================
 // HERO SECTION CONTENT
@@ -19,29 +8,11 @@ export interface SocialLink {
 export const NAME_FIRST = "Nigam";
 export const NAME_LAST = "Niraula";
 
-export const SUBTITLE_PREFIX = "I am a";
-export const SUBTITLE_ITEMS = [
-  "AI Researcher",
-  2000,
-  "Machine Learning Engineer",
-  2000,
-  "Diffusion & Generative Models",
-  2000,
-  "Full-Stack AI Developer",
-  2000,
-  "CS Educator",
-  2000,
-];
-
+export const KICKER_TEXT = "R&D Engineer at SecurityPal, part-time CS lecturer";
+export const ROLE_TEXT = "AI/ML Research Engineer";
 
 export const HERO_DESCRIPTION =
   "AI researcher and engineer focused on computer vision, diffusion models, and agentic AI systems. I build intelligent, end-to-end solutions grounded in theory, tested in practice, and designed for real users.";
-
-export const SOCIAL_LINKS: SocialLink[] = [
-  { icon: Mail, href: "mailto:nigam21nir@gmail.com", label: "Email" },
-  { icon: Linkedin, href: "https://linkedin.com/in/nigam-niraula-564208215", label: "LinkedIn" },
-  { icon: Github, href: "https://github.com/ninix07", label: "GitHub" },
-];
 
 // ==========================================
 // BUTTONS & CTA
@@ -50,7 +21,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const CTA_DOWNLOAD_CV = {
   text: "Download CV",
   href: CV_PDF,
-  icon: Download,
 };
 
 export const CTA_GET_IN_TOUCH = {
@@ -85,25 +55,51 @@ export const FADE_IN_UP_VARIANTS: Variants = {
   },
 };
 
+// The underline path is reused by the chalk-mover animation in index.css —
+// keep them in sync if this ever changes.
+export const UNDERLINE_PATH_D = "M2,10 C60,16 120,4 180,9 C240,14 300,5 398,11";
+export const ROLE_CIRCLE_PATH_D = "M14,36 C10,14 46,4 110,4 C176,4 210,16 206,36 C210,58 174,66 110,66 C44,66 10,58 14,36 Z";
+// A gentle hand-drawn horizontal rule — used for in-card dividers (e.g. the
+// "Keywords" rule) instead of a plain straight border.
+export const RULE_PATH_D = "M2,5 C50,8 100,2 150,6 L198,4";
+
+// The chalk-frame system (see <ChalkFrame />): every card/button border is
+// four of these strokes, one per edge, instead of one path stretched with
+// preserveAspectRatio="none" over the whole box — a stretched loop skews
+// unevenly on anything that isn't square, an edge only stretches along its
+// own long axis so the line weight stays honest at any box size.
+export const EDGE_WOBBLE_H = "M2,6 C30,2 55,9 80,5 C105,1 130,8 155,4 C175,2 190,7 198,5";
+export const EDGE_WOBBLE_V = "M6,2 C2,30 9,55 5,80 C1,105 8,130 4,155 C2,175 7,190 5,198";
+
 export const STYLES = {
-  section: "flex min-h-[90vh] items-center justify-center p-4",
-  container: "container relative z-10 mx-auto",
-  grid: "grid max-w-6xl mx-auto grid-cols-1 items-center gap-12 lg:grid-cols-2",
-  contentWrapper: "space-y-6 text-center lg:text-left",
-  title: "text-5xl font-bold leading-tight md:text-6xl lg:text-7xl",
-  gradientText: "bg-gradient-to-r from-cyan-400 to-slate-400 bg-clip-text text-transparent",
-  subtitle: "text-xl font-semibold text-cyan-300 md:text-2xl min-h-[5rem] lg:min-h-0",
-  description: " font-semibold text-align-justify mx-auto max-w-xl text-slate-400 lg:mx-0",
-  buttonGroup: "flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start",
-  primaryButton: "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-cyan-600 px-6 font-medium text-white transition-all duration-300 hover:bg-cyan-700",
-  secondaryButton: "group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-slate-700 bg-transparent px-6 font-medium text-slate-200 transition-colors duration-300 hover:border-cyan-500 hover:bg-slate-800/50",
-  socialGroup: "flex items-center justify-center gap-5 pt-4 lg:justify-start",
-  socialLink: "text-slate-400 transition-colors duration-300 hover:text-cyan-400",
-  imageWrapper: "relative mx-auto w-80 lg:w-96",
-  imageSpinner: "absolute -inset-1.5 animate-[spin_6s_linear_infinite] rounded-2xl bg-gradient-to-r from-cyan-600 via-slate-500 to-cyan-600",
-  imageContainer: "relative h-80 w-80 overflow-hidden rounded-xl bg-zinc-900 lg:h-96 lg:w-96",
+  frame: "mt-16 h-[calc(100vh-4rem)] rounded p-3 sm:p-3.5 shadow-[0_8px_20px_rgba(0,0,0,0.3)] bg-gradient-to-b from-[#8B6849] via-[#6B4A30] to-[#55391F]",
+  board: "hero-board relative h-full rounded-sm shadow-[inset_0_0_40px_rgba(0,0,0,0.5)]",
+  section: "flex h-full flex-col overflow-y-auto px-4 py-8 sm:px-8 sm:py-10",
+  // One block (grid + tray) with a generous fixed gap between them, rather
+  // than pinning them to the top/bottom edges — that just relocates the dead
+  // space into one big gap in the middle instead of removing it. Centered
+  // only from lg up, where it's known to fit; below that the content can be
+  // taller than the frame, and centering an overflowing flex child clips
+  // it symmetrically top-and-bottom with no way to scroll to the clipped
+  // part — justify-start keeps the whole thing reachable by scrolling.
+  container: "container relative z-10 mx-auto flex h-full flex-col justify-start gap-14 lg:justify-center",
+  grid: "grid max-w-6xl mx-auto w-full grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_0.8fr] lg:gap-16",
+  contentWrapper: "space-y-7 text-center lg:text-left",
+  kicker: "inline-flex items-center gap-2 font-mono text-sm tracking-wide text-chalk-400 before:h-[8px] before:w-[8px] before:rounded-full before:bg-chalk-yellow-500 before:shadow-[0_0_6px_#D4B15C]",
+  title: "hero-name font-display text-6xl leading-tight sm:text-7xl lg:text-8xl text-chalk-100",
+  roleLine: "flex justify-center lg:justify-start",
+  roleCircle: "relative inline-block px-2 py-1",
+  roleCircleSvg: "role-circle-svg absolute -inset-x-4 -inset-y-3 h-[calc(100%+24px)] w-[calc(100%+32px)]",
+  roleText: "relative text-2xl font-bold text-chalk-yellow-500 sm:text-3xl",
+  description: "mx-auto max-w-2xl text-xl text-chalk-400 leading-relaxed lg:mx-0",
+  buttonGroup: "flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-center lg:justify-start",
+  primaryButton: "btn-chalk h-14 px-8 text-lg font-semibold text-chalk-yellow-500 transition-colors duration-200 hover:text-chalk-yellow-400",
+  secondaryButton: "link-chalk text-lg font-semibold text-chalk-100 transition-colors duration-200 hover:text-chalk-yellow-500",
+  imageWrapper: "relative mx-auto w-80 sm:w-[28rem]",
+  imageContainer: "portrait-frame relative aspect-square overflow-hidden rounded-full bg-board-900",
   image: "h-full w-full object-cover",
-  hireBadge: "absolute -bottom-4 -right-4 flex items-center gap-2 rounded-full border border-slate-700 bg-zinc-900/80 px-4 py-2 text-sm backdrop-blur-md",
-  hireBadgePing: "absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75",
-  hireBadgeDot: "relative inline-flex h-3 w-3 rounded-full bg-green-500",
+  tray: "relative flex flex-wrap gap-10 border-t border-dashed border-chalk-100/15 pt-6",
+  trayItem: "flex items-center gap-3 font-mono text-sm text-chalk-400",
+  traySvg: "chalk-svg flex-shrink-0",
+  swipeDivider: "chalk-svg mt-3 block h-9 w-full",
 } as const;

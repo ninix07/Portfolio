@@ -1,4 +1,5 @@
 import { motion, Variants } from "framer-motion";
+import { RULE_PATH_D } from "./heroConstants";
 import {
   // Main Categories
   Brain, Laptop, Rocket, Settings,
@@ -89,57 +90,51 @@ const SkillsSection = () => {
     
     <section id="skills" className="py-24 sm:py-32">
       <div className="container relative z-10 mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="mx-auto max-w-4xl text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            My Technical{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-slate-500 bg-clip-text text-transparent">
-              Skillset
-            </span>
+          <h2 className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+            Skills
           </h2>
-          <p className="mt-6 text-lg leading-8 text-slate-400">
-            A curated collection of tools and technologies I use to build modern, intelligent applications.
-          </p>
+          <div className="rule-chalk mx-auto mt-4 w-24">
+            <svg viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true">
+              <path d={RULE_PATH_D} fill="none" stroke="#F4F1E8" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </div>
         </motion.div>
 
-        <motion.div 
-          className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2"
+        {/* Written straight on the board: two ruled columns, no card boxes —
+            a dashed chalk grid instead of a stack of panels. */}
+        <motion.div
+          className="mx-auto mt-10 grid max-w-5xl grid-cols-1 divide-y divide-dashed divide-board-700 border-y border-dashed border-board-700 sm:grid-cols-2 sm:divide-x sm:divide-y-0"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
           {skillCategories.map((category) => (
-            <motion.div
-              key={category.title}
-              variants={itemVariants}
-              className="group relative rounded-2xl border border-zinc-800 bg-zinc-900/50 p-6 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500/50"
-            >
-              <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-zinc-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-
-              <div className="mb-4 flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-800 text-cyan-400">
-                  <category.icon className="h-6 w-6" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-100">{category.title}</h3>
+            <motion.div key={category.title} variants={itemVariants} className="p-8">
+              <div className="flex items-baseline gap-3">
+                <category.icon className="h-5 w-5 flex-shrink-0 text-chalk-yellow-500" aria-hidden="true" />
+                <h3 className="font-display text-2xl text-chalk-100">{category.title}</h3>
               </div>
-              <div className="flex flex-wrap gap-2 pt-2">
-                {category.skills.map((skill) => (
-                  <motion.div
-                    key={skill.name}
-                    className="flex items-center gap-2 rounded-full bg-slate-800/80 px-3 py-1 text-sm font-medium text-slate-300 transition-colors hover:bg-cyan-600/30 hover:text-cyan-300"
-                    whileHover={{ y: -3, scale: 1.05 }}
-                  >
-                    <skill.icon className="h-4 w-4" />
-                    <span>{skill.name}</span>
-                  </motion.div>
+              <div className="rule-chalk my-4 max-w-[10rem]">
+                <svg viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true">
+                  <path d={RULE_PATH_D} fill="none" stroke="#F4F1E8" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </div>
+              <p className="font-mono text-sm leading-loose text-chalk-400">
+                {category.skills.map((skill, i) => (
+                  <span key={skill.name}>
+                    {i > 0 && <span className="mx-2 text-chalk-yellow-500">&middot;</span>}
+                    {skill.name}
+                  </span>
                 ))}
-              </div>
+              </p>
             </motion.div>
           ))}
         </motion.div>
