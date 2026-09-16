@@ -9,10 +9,10 @@ export const NAME_FIRST = "Nigam";
 export const NAME_LAST = "Niraula";
 
 export const KICKER_TEXT = "R&D Engineer at SecurityPal, part-time CS lecturer";
-export const ROLE_TEXT = "AI/ML Research Engineer";
+export const ROLE_TEXT = "AI/ML Researcher";
 
 export const HERO_DESCRIPTION =
-  "AI researcher and engineer focused on computer vision, diffusion models, and agentic AI systems. I build intelligent, end-to-end solutions grounded in theory, tested in practice, and designed for real users.";
+  "AI researcher and engineer focused on computer vision, diffusion models, agentic AI systems, and healthcare AI. I build intelligent, end-to-end solutions grounded in theory, tested in practice, and designed for real users.";
 
 // ==========================================
 // BUTTONS & CTA

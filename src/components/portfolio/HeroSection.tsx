@@ -149,10 +149,9 @@ const HeroSection = () => {
               </div>
               <div className={STYLES.trayItem}>
                 <svg className={STYLES.traySvg} width="22" height="20" viewBox="0 0 22 20" aria-hidden="true">
-                  <path d="M11,2 L11,15 M6,7 L11,2 L16,7" fill="none" stroke="#C9CFC3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M3,15 L3,17 L19,17 L19,15" fill="none" stroke="#C9CFC3" strokeWidth="1.6" strokeLinecap="round" />
+                  <path d="M2,11 L6,11 L8,4 L11,17 L13,7 L15,11 L20,11" fill="none" stroke="#C9CFC3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                HPC Systems
+                Healthcare AI
               </div>
             </div>
 

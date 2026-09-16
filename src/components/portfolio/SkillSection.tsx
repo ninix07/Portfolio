@@ -8,7 +8,7 @@ import {
   // Software Development
   FileCode2, Globe, Smartphone, Server, Database, Hash, Shield, Palette,
   // MLOps & Platforms
-  GitBranch, Container, Cloud, Bot, HardDrive,
+  GitBranch, Container, Cloud, Bot, HardDrive, Layers,
   // Tools & Ecosystem
   BookOpen, Terminal, Figma, Send
 } from "lucide-react";
@@ -50,6 +50,7 @@ const skillCategories = [
       { name: "Git", icon: GitBranch },
       { name: "Docker", icon: Container },
       { name: "Google Cloud", icon: Cloud },
+      { name: "Terraform", icon: Layers },
       { name: "Linux", icon: HardDrive },
       { name: "Google ADK", icon: Bot },
     ]
@@ -59,6 +60,7 @@ const skillCategories = [
     icon: Settings,
     skills: [
       { name: "VS Code", icon: Terminal },
+      { name: "Neovim", icon: Terminal },
       { name: "Jupyter", icon: BookOpen },
       { name: "Figma", icon: Figma },
       { name: "Postman", icon: Send },
